@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Ubuntu";
+    src: url("/src/assets/fonts/Ubuntu-Light.woff2") format("woff2"),
+      url("/src/assets/fonts/Ubuntu-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Ubuntu";
+    src: url("/src/assets/fonts/Ubuntu-Bold.woff2") format("woff2"),
+      url("/src/assets/fonts/Ubuntu-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Ubuntu";
+    src: url("/src/assets/fonts/Ubuntu-Italic.woff2") format("woff2"),
+      url("/src/assets/fonts/Ubuntu-Italic.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Ubuntu";
+    src: url("/src/assets/fonts/Ubuntu-BoldItalic.woff2") format("woff2"),
+      url("/src/assets/fonts/Ubuntu-BoldItalic.woff") format("woff");
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Ubuntu";
+    src: url("/src/assets/fonts/Ubuntu-Medium.woff2") format("woff2"),
+      url("/src/assets/fonts/Ubuntu-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Ubuntu";
+    src: url("/src/assets/fonts/Ubuntu-Regular.woff2") format("woff2"),
+      url("/src/assets/fonts/Ubuntu-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Ubuntu";
+    src: url("/src/assets/fonts/Ubuntu-LightItalic.woff2") format("woff2"),
+      url("/src/assets/fonts/Ubuntu-LightItalic.woff") format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Ubuntu";
+    src: url("/src/assets/fonts/Ubuntu-MediumItalic.woff2") format("woff2"),
+      url("/src/assets/fonts/Ubuntu-MediumItalic.woff") format("woff");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+  }
+}
