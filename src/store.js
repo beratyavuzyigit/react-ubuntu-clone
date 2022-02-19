@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import counterReducer from './stores/counter'
+import menuToggleReducer from './stores/menuToggle'
+import applicationsReducer from './stores/applications'
 
 export default configureStore({
     reducer: {
-        counter: counterReducer,
+        menuToggle: menuToggleReducer,
+        applications: applicationsReducer,
     },
 });

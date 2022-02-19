@@ -17,9 +17,12 @@ module.exports = {
       yellow: colors.amber,
       pink: colors.fuchsia,
       slate: colors.slate,
+      zinc: colors.zinc,
     },
     animation: {
       'spin-slow': 'spin 3s linear infinite',
+      'fade-up': 'fade-up 0.5s forwards',
+      'fade-down': 'fade-down 0.5s forwards'
     },
     screens: {
       'sm': '640px',
@@ -33,7 +36,29 @@ module.exports = {
     },
     fontFamily: {
       'ubuntu': 'Ubuntu',
-    }
+    },
+    keyframes: {
+      'fade-up': {
+        '0%': {
+          opacity: '0',
+          visibility: 'hidden'
+        },
+        '100%': {
+          opacity: '1',
+          visibility: 'inherit'
+        },
+      },
+      'fade-down': {
+        '0%': {
+          opacity: '1',
+          visibility: 'inherit'
+        },
+        '100%': {
+          opacity: '0',
+          visibility: 'hidden'
+        },
+      }
+    },
   },
   plugins: [],
 }

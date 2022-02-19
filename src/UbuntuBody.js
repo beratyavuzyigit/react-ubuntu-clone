@@ -1,12 +1,13 @@
-import homeFileIcon from "./assets/images/home-file-icon.png"
+import BodyFiles from "./components/BodyFiles"
+import BodyMenu from "./components/BodyMenu"
+import { useSelector } from 'react-redux'
 
 export default function UbuntuBody() {
+    const menuToggle = useSelector((state) => state.menuToggle.value);
     return (
-        <div className="w-full h-full p-7 flex items-start text-center text-xs text-white">
-            <div className="flex flex-col justify-center gap-1">
-                <img src={homeFileIcon} className="w-12 h-max cursor-pointer" alt="Ubuntu Logo" />
-                <span>Folder</span>
-            </div>
+        <div className="w-full h-full relative">
+            <BodyFiles />
+            <BodyMenu />
         </div>
     );
 }
