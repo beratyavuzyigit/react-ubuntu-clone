@@ -1,7 +1,7 @@
 import Icon from '@mdi/react';
 import { React, useState } from 'react';
 // import { mdiClose, mdiMinus, mdiCropSquare, mdiChevronLeft, mdiChevronRight, mdiHome, mdiCog, mdiFolder, mdiFileOutline, mdiDownload, mdiMusic, mdiCamera, mdiMovieOpen, mdiTrashCan, mdiHarddisk, mdiLanConnect } from '@mdi/js';
-import { mdiClose, mdiMinus, mdiCropSquare, mdiChevronLeft, mdiChevronRight, mdiHome, mdiCog, mdiFolder, mdiFileOutline, mdiDownload, mdiMusic, mdiCamera, mdiMovieOpen, mdiTrashCan, mdiHarddisk, mdiLanConnect } from '@mdi/js';
+import { mdiClose, mdiMinus, mdiCropSquare, mdiChevronLeft, mdiChevronRight, mdiCog, mdiHarddisk, mdiLanConnect } from '@mdi/js';
 import * as MuiIcons from '@mdi/js';
 import { useSelector, useDispatch } from 'react-redux';
 import FolderContent from 'components/Applications/FolderContents/FolderContent';
@@ -13,7 +13,6 @@ export default function Folders(props) {
     const FolderValue = props.FolderValue;
     const FolderVisible = useSelector((state) => state.applications.OpenFolders).includes(FolderValue);
     const OpenFolders = useSelector((state) => state.applications.OpenFolders);
-    const test = MuiIcons['mdiHome'];
     const [positionX, setPositionX] = useState((document.body.clientWidth / 2) - 550 + (OpenFolders.length * 30));
     const [positionY, setPositionY] = useState((document.body.clientHeight / 2) + 192 + (OpenFolders.length * 30));
     const [cursorX, setCursorX] = useState(0);
@@ -55,7 +54,7 @@ export default function Folders(props) {
                     <button className='py-1 px-3 rounded-r-md border-[1px] border-[#555] border-l-0'><Icon path={mdiChevronRight} size={1.5} color="#aaa" /></button>
                 </div>
                 <div className='ml-5 shadow-inner shadow-[#222] rounded-md bg-[#363632] flex flex-wrap gap-2 items-center px-3 h-12'>
-                    <Icon path={mdiHome} size={1.1} color="#aaa" /> <span className='text-[#dedad1] text-sm font-semibold'>Başlangıç</span>
+                    <Icon path={MuiIcons[FoldersObject[FolderValue].icon]} size={1.1} color="#aaa" /> <span className='text-[#dedad1] text-sm font-semibold'>{FoldersObject[FolderValue].name}</span>
                 </div>
                 <div className='ml-5 shadow-[0_0px_5px_0px_rgba(0,0,0,0.3)] rounded-md bg-[#3d3d3d] flex flex-wrap gap-2 items-center px-3 h-12 border-[1px] border-[#555] right-2 absolute'>
                     <Icon path={mdiCog} size={1.1} color="#aaa" />
@@ -66,7 +65,7 @@ export default function Folders(props) {
                     <div className='text-left'>
                         <div className='px-5 py-1 text-lg font-semibold'>Yerler</div>
                         {FoldersArray.map(ArrFolderValue => (
-                            <div className={`flex flex-wrap gap-2 pl-10 py-1 cursor-pointer ${ArrFolderValue == FolderValue ? 'bg-[#ed7443] text-white shadow-inner' : 'hover:bg-[#ed7443] hover:text-white hover:shadow-inner'}`}><Icon path={MuiIcons[FoldersObject[ArrFolderValue].icon]} size={1.1} /> <span >{FoldersObject[ArrFolderValue].name}</span></div>
+                            <div className={`flex flex-wrap gap-2 pl-10 py-1 cursor-pointer ${ArrFolderValue === FolderValue ? 'bg-[#ed7443] text-white shadow-inner' : 'hover:bg-[#ed7443] hover:text-white hover:shadow-inner'}`}><Icon path={MuiIcons[FoldersObject[ArrFolderValue].icon]} size={1.1} /> <span >{FoldersObject[ArrFolderValue].name}</span></div>
                         ))}
                         {/* <div className='flex flex-wrap gap-2 pl-10 py-1 cursor-pointer bg-[#ed7443] text-white shadow-inner'><Icon path={test} size={1.1} /> <span >Başlangıç</span></div>
                         <div className='flex flex-wrap gap-2 pl-10 py-1 cursor-pointer hover:bg-[#ed7443] hover:text-white hover:shadow-inner'><Icon path={mdiFolder} size={1.1} /> <span >Masaüstü</span></div>
