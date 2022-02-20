@@ -5,11 +5,8 @@ import instagramIcon from "assets/images/instagram.png"
 import translateIcon from "assets/images/translate.png"
 import settingsIcon from "assets/images/settings.jpg"
 import twitterIcon from "assets/svg/twitter.svg"
-import { useSelector } from 'react-redux'
 
 export default function BodyMenuApps() {
-    const menuToggle = useSelector((state) => state.menuToggle.value);
-
     return (
         <div className="flex justify-center relative mt-20 transition-all ease-out duration-500">
             <div className="w-[900px] flex flex-wrap justify-start">
