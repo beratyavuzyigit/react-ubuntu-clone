@@ -13,12 +13,15 @@ export default function Folders(props) {
     const FolderValue = props.FolderValue;
     const FolderVisible = useSelector((state) => state.applications.OpenFolders).includes(FolderValue);
     const OpenFolders = useSelector((state) => state.applications.OpenFolders);
+    // const [positionX, setPositionX] = useState((document.body.clientWidth / 2) - 550 + (OpenFolders.length * 30));
     const [positionX, setPositionX] = useState((document.body.clientWidth / 2) - 550 + (OpenFolders.length * 30));
+    // const [positionY, setPositionY] = useState((document.body.clientHeight / 2) + 192 + (OpenFolders.length * 30));
     const [positionY, setPositionY] = useState((document.body.clientHeight / 2) + 192 + (OpenFolders.length * 30));
     const [cursorX, setCursorX] = useState(0);
     const [cursorY, setCursorY] = useState(0);
     return (
-        <div className={`Folder fixed w-[1100px] h-96 ${FolderVisible ? 'animate-fade-up' : 'animate-fade-down'}`} style={{
+        <div className={`Folder relative w-[1100px] h-96 ${FolderVisible ? 'animate-fade-up' : 'animate-fade-down'}`} style={{
+            position: 'absolute',
             left: `${positionX}px`,
             top: `${positionY}px`,
         }}>
@@ -28,16 +31,20 @@ export default function Folders(props) {
                     setCursorY(e.pageY);
                 }}
                 onDrag={(e) => {
-                    setCursorX(e.pageX);
-                    setCursorY(e.pageY);
-                    setPositionX(positionX - (cursorX - e.pageX));
-                    setPositionY(positionY - (cursorY - e.pageY));
+                    if (!(positionX - (cursorX - e.pageX) < 0) && !(positionY - (cursorY - e.pageY) < 0)) {
+                        setCursorX(e.pageX);
+                        setCursorY(e.pageY);
+                        setPositionX(positionX - (cursorX - e.pageX));
+                        setPositionY(positionY - (cursorY - e.pageY));
+                    }
                 }}
                 onDragEnd={(e) => {
                     setCursorX(e.pageX);
                     setCursorY(e.pageY);
-                    setPositionX(positionX - (cursorX - e.pageX));
-                    setPositionY(positionY - (cursorY - e.pageY));
+                    const newX = positionX - (cursorX - e.pageX) < 0 ? 0 : positionX - (cursorX - e.pageX);
+                    const newY = positionY - (cursorY - e.pageY) < 0 ? 0 : positionY - (cursorY - e.pageY);
+                    setPositionX(newX);
+                    setPositionY(newY);
                 }}>
                 <div className='flex items-center gap-1 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500'>
                     <button className='bg-[#e76033] text-zinc-800 p-1 rounded-full shadow-md shadow-gray-900' onClick={() => dispatch(Folder([FolderValue, false]))}><Icon path={mdiClose} size={0.5} /></button>
